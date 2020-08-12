@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+int main()
+{
+    int i,j,n,mP,mI,jP,jI,aux,auxI=0;
+    while(scanf("%d",&n)&&n)
+    {
+        mP=mI=jP=jI=0;
+        for(i=0;i<n;i++)
+        {
+          scanf("%d",&aux);
+          if(aux%2==0)
+            mP++;
+          else
+            mI++;
+        }
+        for(i=0;i<n;i++)
+        {
+          scanf("%d",&aux);
+          if(aux%2==0)
+            jP++;
+          else
+            jI++;
+        }
+        aux=mP-jI;
+        auxI=mI-jP;
+        if(aux<0)
+        {
+          jI=-aux;
+          mP=0;
+        }
+        else
+        {
+            mP=aux;
+            jI=0;
+        }
+        if(auxI<0)
+        {
+            jP=-auxI;
+            mI=0;
+        }
+        else
+        {
+            mI=auxI;
+            jP=0;
+        }
+        if(mP==jP&&jP==0)  
+            printf("%i\n",mI);
+        else
+            printf("%i\n",mP);
+    }
+    return(0);
+}
